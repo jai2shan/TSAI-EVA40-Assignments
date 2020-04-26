@@ -53,8 +53,8 @@ Target for Trial 3
  2) Trying stepsize of 6,8 and 10 to choose the best parameter
 
 Results
-Best accuracy (Train) - 98.97%    
-Best accuracy (Test) - 99.47%    
+Best accuracy (Train) - 99.03%    
+Best accuracy (Test) - 99.45%    
 Total Parameters - 9752
 
 Analysis
