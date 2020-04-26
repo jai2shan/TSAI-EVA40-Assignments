@@ -3,6 +3,25 @@ EVA - Assignments
 
 ## Session 5
 
+### Assignment 5 - Trail 1
+Target for Assignment
+99.4% (this must be consistently shown in your last few epochs, and not a one-time achievement) Less than or equal to 15 epochs
+Less than 10000 Parameters
+
+Target for Trial 1
+1) Reduce the number of parameters by changing the model skeleton and bring back the number of variables to less than 10000
+2) Reduce the number of epochs and observe how the performance is dropping
+
+Results
+Best accuracy (Train) - 98.85%
+Best accuracy (Test) - 99.26%
+Total Parameters - 9752
+
+Analysis
+1) Variables got reduced with drop in accuracy in both train and test data.
+2) Model is underfitting
+
+Link to the File : https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%205/EVA4S5F10%20-%20Step%201%20-%20Reduce%20Number%20of%20Variables.ipynb
 
 ### Assignment 5 - Trail 2
 Target for Assignment
