@@ -40,6 +40,7 @@ Total Parameters - 9752
 Analysis
 0.03 is giving better performance on observing the Test Accuracy graph we can observe the max point of the accuracy is hitting around epoch 10, if that can be achieved around 6th epoch, LR scheduler can make the test accuracy stable which can be tried in next attempt
 
+Colab Link: https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%205/EVA4S5F10%20-%20Step%202%20-%20Changing%20the%20Learning%20Rate.ipynb
 
 ### Assignment 5 - Trail 3   
 Target for Assignment
@@ -51,11 +52,12 @@ Target for Trial 3
  1) Changing the learning rate to 0.05 so that we can hit the max accuracy in the early stages of epochs   
  2) Trying stepsize of 6,8 and 10 to choose the best parameter
 
-## Results
+Results
 Best accuracy (Train) - 98.97%    
 Best accuracy (Test) - 99.47%    
 Total Parameters - 9752
 
- 
-## Analysis
+Analysis
 step size of 6 is giving better performance on observing the Test Accuracy graph.
+
+Colab Link : https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%205/EVA4S5F10%20-%20Step%203%20-%20Changing%20the%20Learning%20Rate%20with%20different%20step%20sizes.ipynb
