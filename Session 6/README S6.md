@@ -17,9 +17,9 @@ https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Image
 https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Images/MyComp_TestLoss.png
 
 ### Observations
-> L2 regularization is performing significantly better than L1
-> Performance Order : L2 Regularization > No Regularization > L1 Regularization
-> GBN performs better than BN
+> L2 regularization is performing significantly better than L1     
+> Performance Order : L2 Regularization > No Regularization > L1 Regularization     
+> GBN performs better than BN    
 
 ### Note
 > used only num_splits =1, for GBN, as I am getting error when I tried to give more than 1. Will be helpful if any code can be shared where num_splits is used more than 1 for learning purpose
