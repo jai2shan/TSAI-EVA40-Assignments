@@ -11,10 +11,10 @@ https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Image
 https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Images/L1-False%2CL2-False%2CGBN-True.png
 
 ### Validation Accuracy Change Graph
-
+https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Images/MyComp_TestAccuracy.png
 
 ### Loss Change Graph
-
+https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%206/Images/MyComp_TestLoss.png
 
 ### 
 
