@@ -21,7 +21,7 @@ Target:
 
 Results:
 --------
-1) Best Train Accuracy : 87.64
+1) Train Accuracy : 87.64
 2) Test Accuracy : 79.96
 
 Step -3 
@@ -32,7 +32,7 @@ Target:
 
 Results:
 --------
-1) Best Train Accuracy : 
+1) Train Accuracy : 
 2) Test Accuracy : 
 
 
