@@ -1,3 +1,7 @@
+Final Solution Link:
+=====================
+https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%207/Assignment_7_Trail_3_Buidling_CNN_with_Dilation_and_Depthwise_SC.ipynb
+
 Step - 1
 =========
 Target: 
