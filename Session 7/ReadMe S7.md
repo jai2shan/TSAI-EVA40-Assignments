@@ -36,8 +36,8 @@ Target:
 
 Results:
 --------
-1) Train Accuracy : 
-2) Test Accuracy : 
+1) Train Accuracy : 87.18
+2) Test Accuracy : 78.47
 
 
 Receptive Field:
