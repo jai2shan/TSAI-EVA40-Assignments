@@ -36,16 +36,17 @@ Results:
 2) Test Accuracy : 
 
 
-Block	Layer	Channel_in	Padding	Kernel	Stride	Channel_out	Receptive field	Jump
-Input						32	1	1
-conv - B1	conv 1-1	32	1	3	1	32	3	1
-conv - B1	conv 1-2	32	1	3	1	32	5	1
-conv - B1	MaxPool1	32	0	2	2	16	6	1
-conv - B2	conv 2-1	16	1	3	1	16	14	4
-conv - B2	conv 2-2	16	1	3	1	16	16	1
-conv - B2	MaxPool2	16	0	2	2	8	17	1
-conv - B3	conv 3-1	8	1	3	1	8	21	2
-conv - B3	conv 3-2	8	1	3	1	8	23	1
-conv - B3	MaxPool2	8	0	2	2	4	24	1
-conv - B3	conv 4-1	4	1	3	1	4	28	2
-conv - B3	conv 4-2	4	1	3	1	4	30	1
+Block,Layer,Channel_in,Padding,Kernel,Stride,Channel_out,Receptive field,Jump     
+Input,,,,,,32,1,1     
+conv - B1,conv 1-1,32,1,3,1,32,3,1      
+conv - B1,conv 1-2,32,1,3,1,32,5,1      
+conv - B1,MaxPool1,32,0,2,2,16,6,1        
+conv - B2,conv 2-1,16,1,3,1,16,14,4       
+conv - B2,conv 2-2,16,1,3,1,16,16,1       
+conv - B2,MaxPool2,16,0,2,2,8,17,1        
+conv - B3,conv 3-1,8,1,3,1,8,21,2       
+conv - B3,conv 3-2,8,1,3,1,8,23,1       
+conv - B3,MaxPool2,8,0,2,2,4,24,1       
+conv - B3,conv 4-1,4,1,3,1,4,28,2     
+conv - B3,conv 4-2,4,1,3,1,4,30,1       
+
