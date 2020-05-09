@@ -36,6 +36,8 @@ Results:
 2) Test Accuracy : 
 
 
+Receptive Field:
+----------------
 Block,Layer,Channel_in,Padding,Kernel,Stride,Channel_out,Receptive field,Jump     
 Input,,,,,,32,1,1     
 conv - B1,conv 1-1,32,1,3,1,32,3,1      
@@ -50,3 +52,8 @@ conv - B3,MaxPool2,8,0,2,2,4,24,1
 conv - B3,conv 4-1,4,1,3,1,4,28,2     
 conv - B3,conv 4-2,4,1,3,1,4,30,1       
 
+Unable to calculate the receptive field values when I am using dilated convolutions. I am aware the dilated convolutions with alpha value 2 will increase receptive field by 4 but not able to implement in the table form to calculate receptive field
+
+Exploration about calculation:
+https://distill.pub/2019/computing-receptive-fields/
+https://stats.stackexchange.com/questions/265462/whats-the-receptive-field-of-a-stack-of-dilated-convolutions
