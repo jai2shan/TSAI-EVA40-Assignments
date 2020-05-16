@@ -45,4 +45,4 @@ Epoch : 15
 Train Accuracy :87.45
 Test Accuracy : 86.3
 
-
+Colab Link: https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%208/Assignment_8_Solution.ipynb
