@@ -34,15 +34,15 @@ transforms.ToTensor(),
 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))   
 
 ##### Added L2 Regularization
-Added StepLR after 15 steps
+Added StepLR after 15 steps  
 
 ##### Results:
-Max Train Accuracy: 92.94
-Max Test Accuracy: 87.62
+Max Train Accuracy: 92.94    
+Max Test Accuracy: 87.62    
 
 ##### Best Model :
-Epoch : 15
-Train Accuracy :87.45
-Test Accuracy : 86.3
+Epoch : 15   
+Train Accuracy :87.45   
+Test Accuracy : 86.3   
 
 Colab Link: https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%208/Assignment_8_Solution.ipynb
