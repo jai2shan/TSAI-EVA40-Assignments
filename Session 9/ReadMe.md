@@ -3,14 +3,14 @@
 Runs
 =============
 ### 1 - 
-Run 1    
+Step 1    
 Include Horizontalflip in transforms             
 Include VerticalFlip in transforms          
 Changed StepLR to 20 steps     
 
 Max Test Accuracy - 86.41    
 
-Run 2    
+Step 2    
 Removed VerticalFlip in transforms     
 Max test Accuracy - 89.07    
 Max Train Accuracy - 95.07    
