@@ -24,7 +24,8 @@ Test - 88.43
 Including GradCam code
 
 Max test Accuracy - 88.25    
-Max Train Accuracy - 94.71     
+Max Train Accuracy - 94.71  
+
 
 Tried below sources, but was not able to make it work,       
 Source : https://github.com/jacobgil/pytorch-grad-cam    
@@ -44,3 +45,11 @@ https://github.com/jai2shan/TSAI-EVA40-Assignments/tree/master/Session%209/packa
 
 quizDNN.py link   
 https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%209/packaging/asgnmt9/quizDNN.py
+
+
+
+**During Assignment submission i noticed that i used Horizontalflip twice in the transformations. Hence reran the script, which took more than 15 mins to run. I am submitting another solution below, can you please consider the latest one.
+In this run, I am able to achieve,
+Max Test Accuracy - 90.85
+Max Train Accuracy - 95.77
+Best Model Train and Test Accuracies - 92.90 and 90.03
