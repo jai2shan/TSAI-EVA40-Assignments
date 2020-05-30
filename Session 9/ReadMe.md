@@ -48,8 +48,13 @@ https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%209/packa
 
 
 
-**During Assignment submission i noticed that i used Horizontalflip twice in the transformations. Hence reran the script, which took more than 15 mins to run. I am submitting another solution below, can you please consider the latest one.
-In this run, I am able to achieve,
-Max Test Accuracy - 90.85
-Max Train Accuracy - 95.77
-Best Model Train and Test Accuracies - 92.90 and 90.03
+**During Assignment submission i noticed that i used Horizontalflip twice in the transformations. Hence reran the script, which took more than 15 mins to run. I am submitting another solution below, can you please consider the latest one.                 
+In this run, I am able to achieve,          
+Max Test Accuracy - 90.85               
+Max Train Accuracy - 95.77               
+Best Model Train and Test Accuracies - 92.90 and 90.03                
+https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%209/Assignment_9_Step%203_updated%2010%20mins%20after%20asgnt%20submission.ipynb
+
+Or
+
+https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%209/Assignment_9_Step%203_updated%2010%20mins%20after%20asgnt%20submission.ipynb
