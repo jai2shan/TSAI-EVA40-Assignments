@@ -1,0 +1,14 @@
+README.md
+setup.py
+asgnmt7/BaseModel.py
+asgnmt7/ModelDepthwise.py
+asgnmt7/ModelDilatedNDepthSC.py
+asgnmt7/ModelPerformance.py
+asgnmt7/ModelWDilated.py
+asgnmt7/TrainTestLoader.py
+asgnmt7/Training_Testing.py
+asgnmt7/__init__.py
+asgnmt7.egg-info/PKG-INFO
+asgnmt7.egg-info/SOURCES.txt
+asgnmt7.egg-info/dependency_links.txt
+asgnmt7.egg-info/top_level.txt
