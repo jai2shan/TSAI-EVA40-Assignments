@@ -1,6 +1,6 @@
  Assignment 9
 
-Trail#1 to 4 
+Runs
 =============
 ### 1 - 
 Run 1    
@@ -22,7 +22,10 @@ Test - 88.43
 
 ### 2 -
 Including GradCam code
-  
+
+Max test Accuracy - 88.25    
+Max Train Accuracy - 94.71     
+
 Tried below sources, but was not able to make it work,       
 Source : https://github.com/jacobgil/pytorch-grad-cam    
 https://github.com/kazuto1011/grad-cam-pytorch    
