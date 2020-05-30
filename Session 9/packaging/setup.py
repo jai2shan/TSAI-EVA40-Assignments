@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="asgnmt9", # Replace with your own username
-    version="0.0.1",
+    version="0.0.6",
     author="TSAI-Assignment9",
     author_email="muralis2raj@gmail.com",
     description="Assignment9",
