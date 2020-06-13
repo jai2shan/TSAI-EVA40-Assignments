@@ -326,7 +326,7 @@ class LRFinder(object):
 
     def _train_batch(self, train_iter, accumulation_steps, non_blocking_transfer=True):
         self.model.train()
-        total_loss = None  # for late initialization
+        total_loss = 0  # for late initialization
         processed =0
         correct = 0
         self.optimizer.zero_grad()
@@ -341,16 +341,16 @@ class LRFinder(object):
             loss = self.criterion(outputs, labels)
 
             # Loss should be averaged in each step
-            loss /= accumulation_steps
             pred = outputs.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
             correct += pred.eq(labels.view_as(pred)).sum().item()
             processed += len(inputs)
+            total_loss += loss.item()
             loss.backward()
 
         self.optimizer.step()
-        avg_loss /= len(train_loader)
-        avg_acc = 100*correct/processed
-        return avg_loss, avg_acc
+        total_loss /= len(train_loader)
+        total_acc = 100*correct/processed
+        return total_loss, total_acc
 
     def _move_to_device(self, inputs, labels, non_blocking=True):
         def move(obj, device, non_blocking=True):
