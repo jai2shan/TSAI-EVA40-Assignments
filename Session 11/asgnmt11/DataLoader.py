@@ -7,7 +7,7 @@ Created on Sat May 16 12:45:51 2020
 import torch
 from torchvision import datasets
 import torchvision
-
+from torchvision import transforms
 import matplotlib.pyplot as plt
 import numpy as np
 
