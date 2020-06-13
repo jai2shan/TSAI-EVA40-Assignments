@@ -327,7 +327,7 @@ class LRFinder(object):
     def _train_batch(self, train_iter, accumulation_steps, non_blocking_transfer=True):
         self.model.train()
         total_loss = None  # for late initialization
-
+        correct = 0
         self.optimizer.zero_grad()
         for i in range(accumulation_steps):
             inputs, labels = next(train_iter)
@@ -372,6 +372,7 @@ class LRFinder(object):
         # Set model to evaluation mode and disable gradient computation
         running_loss = 0
         self.model.eval()
+        correct = 0
         with torch.no_grad():
             for inputs, labels in val_iter:
                 # Move data to the correct device
