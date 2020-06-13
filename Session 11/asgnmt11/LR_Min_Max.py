@@ -26,7 +26,7 @@ def LR_Min(trainloader,lr_max,model):
 	use_cuda = torch.cuda.is_available()
 	device = torch.device("cuda" if use_cuda else "cpu")
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
-
+	lr_min = dict()
 	for i in mins:
 	  net = model.to(device)
 	  
@@ -35,7 +35,7 @@ def LR_Min(trainloader,lr_max,model):
 	  criterion = nn.CrossEntropyLoss()
 	  optimizer = optim.SGD(net.parameters(), lr=i, momentum=0.9,weight_decay = 0.0005)
 
-	  for epoch in range(10):
+	  for epoch in range(2):
 	      print("EPOCH:", epoch)
 	      tt.train_(net, device, trainloader, optimizer, criterion, epoch,L1 = False)
  
