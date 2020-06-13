@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch
 from LR_Finder import *
 
-def LR_Max(net,start,end,iters,mode):
+def LR_Max(net,trainloader,start,end,iters,mode):
 	criterion = nn.CrossEntropyLoss()
 	optimizer = optim.SGD(net.parameters(), lr=0.0001)
 
@@ -19,7 +19,7 @@ def LR_Max(net,start,end,iters,mode):
 	return lr_max
 
 
-def LR_Min(lr_max,net):
+def LR_Min(trainloader,lr_max,net):
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
 
 	for i in mins:
@@ -33,7 +33,7 @@ def LR_Min(lr_max,net):
 	  for epoch in range(10):
 	      print("EPOCH:", epoch)
 	      tt.train_(net, device, trainloader, optimizer, criterion, epoch,L1 = False)
-	      acc = tt.test_(net, device, testloader) 
+ 
 	  lr_min[i] = max(tt.train_acc)
 	  del net
 	  del tt
