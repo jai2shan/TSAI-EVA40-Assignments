@@ -2,7 +2,7 @@
 import torch.optim as optim
 import torch.nn as nn
 import torch
-from LR_Finder import *
+from LR_Finder_acc import *
 
 def LR_Max(net,trainloader,start,end,iters,mode):
 	criterion = nn.CrossEntropyLoss()
