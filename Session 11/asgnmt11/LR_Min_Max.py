@@ -1,6 +1,6 @@
 
 
-def LR_Max(start_lr=start,end_lr=end,iters,mode):
+def LR_Max(start,end,iters,mode):
 	criterion = nn.CrossEntropyLoss()
 	optimizer = optim.SGD(net.parameters(), lr=0.0001)
 
