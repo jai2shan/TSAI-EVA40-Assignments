@@ -327,6 +327,7 @@ class LRFinder(object):
     def _train_batch(self, train_iter, accumulation_steps, non_blocking_transfer=True):
         self.model.train()
         total_loss = None  # for late initialization
+        processed =0
         correct = 0
         self.optimizer.zero_grad()
         for i in range(accumulation_steps):
