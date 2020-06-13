@@ -100,11 +100,13 @@ class Net(nn.Module):
     def forward(self, x):
         x = self.prep(x)
         # Layer 1
-        x = self.l1x(x)+self.l1r1(self.l1x(x))
+        x = self.l1x(x)
+        x = x + self.l1r1(x)
         # Layer 2
         x = self.l2(x)
         # Layer 3
-        x = self.l3x(x)+self.l3r2(self.l3x(x))
+        x = self.l3x(x)
+        x = x+self.l3r2(x)
         # Output
         x = self.output(x)
 
