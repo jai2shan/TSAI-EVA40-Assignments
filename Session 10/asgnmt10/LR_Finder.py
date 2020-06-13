@@ -6,6 +6,70 @@ from torch.optim.lr_scheduler import _LRScheduler
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 
+from packaging import version
+
+PYTORCH_VERSION = version.parse(torch.__version__)
+
+try:
+    from apex import amp
+
+    IS_AMP_AVAILABLE = True
+except ImportError:
+    IS_AMP_AVAILABLE = False
+
+
+class DataLoaderIter(object):
+    def __init__(self, data_loader):
+        self.data_loader = data_loader
+        self._iterator = iter(data_loader)
+
+    @property
+    def dataset(self):
+        return self.data_loader.dataset
+
+    def inputs_labels_from_batch(self, batch_data):
+        if not isinstance(batch_data, list) and not isinstance(batch_data, tuple):
+            raise ValueError(
+                "Your batch type not supported: {}. Please inherit from "
+                "`TrainDataLoaderIter` (or `ValDataLoaderIter`) and redefine "
+                "`_batch_make_inputs_labels` method.".format(type(batch_data))
+            )
+
+        inputs, labels, *_ = batch_data
+
+        return inputs, labels
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        batch = next(self._iterator)
+        return self.inputs_labels_from_batch(batch)
+
+
+class TrainDataLoaderIter(DataLoaderIter):
+    def __init__(self, data_loader, auto_reset=True):
+        super().__init__(data_loader)
+        self.auto_reset = auto_reset
+
+    def __next__(self):
+        try:
+            batch = next(self._iterator)
+            inputs, labels = self.inputs_labels_from_batch(batch)
+        except StopIteration:
+            if not self.auto_reset:
+                raise
+            self._iterator = iter(self.data_loader)
+            batch = next(self._iterator)
+            inputs, labels = self.inputs_labels_from_batch(batch)
+
+        return inputs, labels
+
+
+class ValDataLoaderIter(DataLoaderIter):
+    pass
+
+
 class LRFinder(object):
     """Learning rate range test.
     The learning rate range test increases the learning rate in a pre-training run
