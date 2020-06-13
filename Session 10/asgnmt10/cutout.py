@@ -43,4 +43,4 @@ class Cutout:
           mask = mask.expand_as(img)
           img = img * mask
 
-          return img4
+          return img
