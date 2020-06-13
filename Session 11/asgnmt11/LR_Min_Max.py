@@ -6,6 +6,7 @@ from LR_Finder_acc import *
 from Training_Testing import TrainTest
 import torch.optim as optim
 import torch.nn as nn
+from assignment11_model import Net
 
 def LR_Max(net,trainloader,start,end,iters,mode):
 	criterion = nn.CrossEntropyLoss()
@@ -22,13 +23,13 @@ def LR_Max(net,trainloader,start,end,iters,mode):
 	return lr_max
 
 
-def LR_Min(trainloader,lr_max,model):
+def LR_Min(trainloader,lr_max):
 	use_cuda = torch.cuda.is_available()
 	device = torch.device("cuda" if use_cuda else "cpu")
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
 	lr_min = dict()
 	for i in mins:
-	  net = model.to(device)
+	  net = Net().to(device)
 	  
 	  tt = TrainTest()
 	  test_acc = 0
