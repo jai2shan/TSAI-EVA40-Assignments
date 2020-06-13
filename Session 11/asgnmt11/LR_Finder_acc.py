@@ -121,6 +121,7 @@ class LRFinder(object):
         self.best_accuracy = None
         self.memory_cache = memory_cache
         self.cache_dir = cache_dir
+        self.train_length = None
 
         # Save the original state of the model and optimizer so they can be restored if
         # needed
@@ -221,9 +222,10 @@ class LRFinder(object):
         """
 
         # Reset test results
-        self.history = {"lr": [], "loss": []}
+        self.history = {"lr": [], "loss": [],"accuracy":[]}
         self.best_loss = None
         self.best_accuracy = None
+        self.train_length = len(train_loader)
 
         # Move the model to the proper device
         self.model.to(self.device)
@@ -348,7 +350,7 @@ class LRFinder(object):
             loss.backward()
 
         self.optimizer.step()
-        total_loss /= len(train_loader)
+        total_loss /= self.train_length
         total_acc = 100*correct/processed
         return total_loss, total_acc
 
@@ -422,9 +424,11 @@ class LRFinder(object):
         if skip_end == 0:
             lrs = lrs[skip_start:]
             losses = losses[skip_start:]
+            accs = accs[skip_start:]
         else:
             lrs = lrs[skip_start:-skip_end]
             losses = losses[skip_start:-skip_end]
+            accs = accs[skip_start:-skip_end]
 
         # Create the figure and axes object if axes was not already given
         fig = None
@@ -432,7 +436,7 @@ class LRFinder(object):
             fig, ax = plt.subplots()
 
         # Plot loss as a function of the learning rate
-        ax.plot(lrs, losses)
+        ax.plot(lrs, accs)
         if log_lr:
             ax.set_xscale("log")
         ax.set_xlabel("Learning rate")
