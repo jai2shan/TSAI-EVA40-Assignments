@@ -119,8 +119,8 @@ def Misclassification(dataset,model,classes,device):
               break
 
     fig = plt.figure(figsize = (8,2))
-    for i in range(25):
-      sub = fig.add_subplot(5, 5, i+1)
+    for i in range(5):
+      sub = fig.add_subplot(1, 5, i+1)
       #imshow(misclassified_images[i][0].cpu())
       img = wrong[i][0].cpu()
       img = img / 2 + 0.5 
