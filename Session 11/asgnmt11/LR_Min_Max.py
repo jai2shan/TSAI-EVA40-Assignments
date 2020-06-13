@@ -36,5 +36,6 @@ def LR_Min(lr_max,net):
 	  lr_min[i] = max(tt.train_acc)
 	  del net
 	  del tt
-    	lr_min = max(lr_min, key=lr_min.get)
-    	return lr_min
+		
+	lr_min = max(lr_min, key=lr_min.get)
+	return lr_min
