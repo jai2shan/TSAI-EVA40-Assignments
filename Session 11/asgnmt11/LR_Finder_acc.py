@@ -342,7 +342,7 @@ class LRFinder(object):
             # Loss should be averaged in each step
             loss /= accumulation_steps
             pred = outputs.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
-            correct += pred.eq(target.view_as(pred)).sum().item()
+            correct += pred.eq(labels.view_as(pred)).sum().item()
             processed += len(inputs)
             loss.backward()
 
