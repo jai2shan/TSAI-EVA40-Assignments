@@ -1,12 +1,12 @@
 
 
-def LR_Max(start_lr=start,end_lr=end):
+def LR_Max(start_lr=start,end_lr=end,iters,mode):
 	criterion = nn.CrossEntropyLoss()
 	optimizer = optim.SGD(net.parameters(), lr=0.0001)
 
 	lr_finder = LRFinder(net, optimizer, criterion, device="cuda")
 	lr_finder.range_test(trainloader, start_lr=start, end_lr=end,
-	                     num_iter=100, step_mode="linear")
+	                     num_iter=iters, step_mode=mode)
 	lr_finder.plot()
 
 	import pandas as pd
