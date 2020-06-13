@@ -53,7 +53,7 @@ class Cutout:
         mask = mask.expand_as(img)
         img = img * mask
 
-          return img
+        return img
 
 def cifar_data_loader(BatchSize):
     classes = ('plane', 'car', 'bird', 'cat',
