@@ -9,7 +9,7 @@ def LR_Max(net,start,end,iters,mode):
 
 	lr_finder = LRFinder(net, optimizer, criterion, device="cuda")
 	lr_finder.range_test(trainloader, start_lr=start, end_lr=end,
-	                     num_iter=iters, step_mode=mode)
+			     num_iter=iters, step_mode=mode)
 	lr_finder.plot()
 
 	import pandas as pd
@@ -36,5 +36,5 @@ def LR_Min(lr_max,net):
 	  lr_min[i] = max(tt.train_acc)
 	  del net
 	  del tt
-    lr_min = max(lr_min, key=lr_min.get)
-    return lr_min
+    	lr_min = max(lr_min, key=lr_min.get)
+    	return lr_min
