@@ -116,7 +116,7 @@ class LRFinder(object):
 
         self.model = model
         self.criterion = criterion
-        self.history = {"lr": [], "loss": [],"acc":[]}
+        self.history = {"lr": [], "loss": [],"accuracy":[]}
         self.best_loss = None
         self.best_accuracy = None
         self.memory_cache = memory_cache
@@ -223,6 +223,7 @@ class LRFinder(object):
         # Reset test results
         self.history = {"lr": [], "loss": []}
         self.best_loss = None
+        self.best_accuracy = None
 
         # Move the model to the proper device
         self.model.to(self.device)
@@ -271,13 +272,13 @@ class LRFinder(object):
 
         for iteration in tqdm(range(num_iter)):
             # Train on batch and retrieve loss
-            loss = self._train_batch(
+            loss,accuracy = self._train_batch(
                 train_iter,
                 accumulation_steps,
                 non_blocking_transfer=non_blocking_transfer,
             )
             if val_loader:
-                loss = self._validate(
+                loss,accuracy = self._validate(
                     val_iter, non_blocking_transfer=non_blocking_transfer
                 )
 
@@ -288,14 +289,18 @@ class LRFinder(object):
             # Track the best loss and smooth it if smooth_f is specified
             if iteration == 0:
                 self.best_loss = loss
+                self.best_accuracy = accuracy
             else:
                 if smooth_f > 0:
                     loss = smooth_f * loss + (1 - smooth_f) * self.history["loss"][-1]
                 if loss < self.best_loss:
                     self.best_loss = loss
+                if accuracy>self.best_accuracy:
+                    self.best_accuracy = accuracy
 
             # Check if the loss has diverged; if it has, stop the test
             self.history["loss"].append(loss)
+            self.history["accuracy"].append(accuracy)
             if loss > diverge_th * self.best_loss:
                 print("Stopping early, the loss has diverged")
                 break
@@ -336,28 +341,15 @@ class LRFinder(object):
 
             # Loss should be averaged in each step
             loss /= accumulation_steps
-
-            # Backward pass
-            if IS_AMP_AVAILABLE and hasattr(self.optimizer, "_amp_stash"):
-                # For minor performance optimization, see also:
-                # https://nvidia.github.io/apex/advanced.html#gradient-accumulation-across-iterations
-                delay_unscale = ((i + 1) % accumulation_steps) != 0
-
-                with amp.scale_loss(
-                    loss, self.optimizer, delay_unscale=delay_unscale
-                ) as scaled_loss:
-                    scaled_loss.backward()
-            else:
-                loss.backward()
-
-            if total_loss is None:
-                total_loss = loss
-            else:
-                total_loss += loss
+            pred = y_pred.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+            processed += len(inputs)
+            loss.backward()
 
         self.optimizer.step()
-
-        return total_loss.item()
+        avg_loss /= len(train_loader)
+        avg_acc = 100*correct/processed
+        return avg_loss, avg_acc
 
     def _move_to_device(self, inputs, labels, non_blocking=True):
         def move(obj, device, non_blocking=True):
@@ -386,18 +378,13 @@ class LRFinder(object):
                 inputs, labels = self._move_to_device(
                     inputs, labels, non_blocking=non_blocking_transfer
                 )
-
-                if isinstance(inputs, tuple) or isinstance(inputs, list):
-                    batch_size = inputs[0].size(0)
-                else:
-                    batch_size = inputs.size(0)
-
-                # Forward pass and loss computation
-                outputs = self.model(inputs)
-                loss = self.criterion(outputs, labels)
-                running_loss += loss.item() * batch_size
-
-        return running_loss / len(val_iter.dataset)
+                pred = outputs.argmax(dim=1, keepdim=True)
+                is_correct = pred.eq(labels.view_as(pred))
+                correct += is_correct.sum().item()
+                
+        loss /= len(dataloader.dataset)
+        acc = 100. * correct / len(dataloader.dataset)
+        return loss, acc
 
     def plot(self, skip_start=10, skip_end=5, log_lr=True, show_lr=None, ax=None):
         """Plots the learning rate range test.
@@ -429,6 +416,7 @@ class LRFinder(object):
         # properly so the behaviour is the expected
         lrs = self.history["lr"]
         losses = self.history["loss"]
+        accs = self.history['accuracy']
         if skip_end == 0:
             lrs = lrs[skip_start:]
             losses = losses[skip_start:]
@@ -446,7 +434,7 @@ class LRFinder(object):
         if log_lr:
             ax.set_xscale("log")
         ax.set_xlabel("Learning rate")
-        ax.set_ylabel("Loss")
+        ax.set_ylabel("Accuracy")
 
         if show_lr is not None:
             ax.axvline(x=show_lr, color="red")
