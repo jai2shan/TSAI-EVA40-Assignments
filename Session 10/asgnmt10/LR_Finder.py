@@ -1,3 +1,11 @@
+import copy
+import os
+import torch
+from tqdm.autonotebook import tqdm
+from torch.optim.lr_scheduler import _LRScheduler
+import matplotlib.pyplot as plt
+from torch.utils.data import DataLoader
+
 class LRFinder(object):
     """Learning rate range test.
     The learning rate range test increases the learning rate in a pre-training run
