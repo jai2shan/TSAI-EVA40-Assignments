@@ -30,7 +30,7 @@ def LR_Min(trainloader,lr_max):
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
 	lr_min = dict()
 	for i in mins:
-	  net = Net.to(device)
+	  net = Net().to(device)
 	  
 	  tt = TrainTest()
 	  test_acc = 0
