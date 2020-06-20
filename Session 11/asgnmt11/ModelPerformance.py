@@ -129,4 +129,5 @@ def Misclassification(dataset,model,classes,device):
       sub.set_title("P={}, A={}".format(str(classes[wrong[i][1].data.cpu().numpy()]),str(classes[wrong[i][2].data.cpu().numpy()])))
         
     plt.tight_layout()
+    return wrong
 
