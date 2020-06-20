@@ -105,7 +105,9 @@ def ViewModelPerformance(testloader,model,classes,device):
 
 
 
-def Misclassification(dataset,model,classes,device):
+def Misclassification(dataset,model,device):
+    classes = ('plane', 'car', 'bird', 'cat',
+           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     wrong = []
     for images, labels in dataset:
         images, labels = images.to(device), labels.to(device)
@@ -129,6 +131,5 @@ def Misclassification(dataset,model,classes,device):
       sub.set_title("P={}, A={}".format(str(classes[wrong[i][1].data.cpu().numpy()]),str(classes[wrong[i][2].data.cpu().numpy()])))
         
     plt.tight_layout()
-
     return wrong
 
