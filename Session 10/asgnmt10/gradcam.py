@@ -114,27 +114,23 @@ def visualize_cam(mask, img, alpha=1.0):
 
     return heatmap, result
 
-
-
-
-
-def GradCamDisplay(model,pil_image,classes,device):
+def GradCamDisplay(model,wrong,device):
+    classes = ('plane', 'car', 'bird', 'cat',
+           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     normed_torch_img = []
     torch_img_list = []
 
-    for i in pil_image:
-      torch_img = transforms.Compose([
-          transforms.Resize((32, 32)),
-          transforms.ToTensor()])(i).to(device)
+    for i in range(len(wrong)):
+      torch_img = wrong[i][0].to(device)
       torch_img_list.append(torch_img)
-      normed_torch_img .append(transforms.Normalize([0.4914, 0.4822, 0.4465], [0.247, 0.243, 0.261])(torch_img)[None])
+      normed_torch_img.append(transforms.Normalize([0.4914, 0.4822, 0.4465], [0.247, 0.243, 0.261])(torch_img)[None])
 
-    def imshow(img,c = "" ):
+    def imshow(img,actual,predicted):
         #img = img / 2 + 0.5     # unnormalize
         npimg = img.numpy()
         fig = plt.figure(figsize=(10,10))
         plt.imshow(np.transpose(npimg, (1, 2, 0)),interpolation='none')
-        plt.title(c)
+        plt.title("A={}, P={}".format(actual, predicted))
 
     for i,k in enumerate(normed_torch_img):
       images1 = [torch_img_list[i].cpu()]
@@ -153,4 +149,4 @@ def GradCamDisplay(model,pil_image,classes,device):
         images2.extend([result])
 
       grid_image = make_grid(images1+images2,nrow=5)
-      imshow(grid_image,c = classes[int(predicted)])
+      imshow(grid_image,classes[wrong[i][2]],classes[wrong[i][1]])
