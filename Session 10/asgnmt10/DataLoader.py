@@ -4,6 +4,7 @@ Created on Sat May 16 12:45:51 2020
 
 @author: jayasans4085
 """
+from torchvision import transforms
 import torch
 from torchvision import datasets
 import torchvision
