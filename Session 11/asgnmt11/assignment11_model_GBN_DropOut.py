@@ -4,6 +4,7 @@ Created on Sat Jun 13 19:04:42 2020
 
 @author: jayasans4085
 """
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
