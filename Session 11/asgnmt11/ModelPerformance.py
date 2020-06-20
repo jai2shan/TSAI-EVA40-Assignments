@@ -130,5 +130,3 @@ def Misclassification(dataset,model,classes,device):
         
     plt.tight_layout()
 
-    return wrong
-
