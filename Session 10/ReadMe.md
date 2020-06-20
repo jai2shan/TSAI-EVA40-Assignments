@@ -11,7 +11,7 @@ https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2010/Trai
 
 
 ## What is the test accuracy of your model? - 150PTS (If you have mentioned training accuracies, please comment on your assignment what is test)
-in the quiz i gave Training accuracy as it was the question 
+in the quiz i gave Training accuracy as it was the question     
 Train Accuracy - 97.97    
 Test Accuracy - 92.92    
 
