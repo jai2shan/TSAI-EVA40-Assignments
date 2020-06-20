@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Net(nn.Module):
-    def __init__(self):
+    def __init__(self,num_splits_=1):
         super(Net, self).__init__()
         dropout_value = 0.1
         # Prep Layer
