@@ -45,4 +45,4 @@ def LR_Min(trainloader,lr_max):
 	  del tt
 
 	lr_min = max(lr_min, key=lr_min.get)
-    return lr_min
+    	return lr_min
