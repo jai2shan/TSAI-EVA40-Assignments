@@ -37,7 +37,7 @@ def LR_Min(model,trainloader,lr_max):
 	  criterion = nn.CrossEntropyLoss()
 	  optimizer = optim.SGD(net.parameters(), lr=i, momentum=0.9,weight_decay = 0.0005)
 
-	  for epoch in range(5):
+	  for epoch in range(3):
 	      print("EPOCH:", epoch)
 	      tt.train_(net, device, trainloader, optimizer, criterion, epoch,L1 = False)
  
