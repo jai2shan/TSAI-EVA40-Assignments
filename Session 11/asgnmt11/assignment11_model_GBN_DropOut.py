@@ -20,7 +20,7 @@ class Net(nn.Module):
                                               padding=1, 
                                               bias=False),
                                     nn.ReLU(),
-                                    GhostBatchNorm(64)
+                                    GhostBatchNorm(64,num_splits_)
                                     )
         # Layer 1
         self.l1x = nn.Sequential(
@@ -30,7 +30,7 @@ class Net(nn.Module):
                                               padding=1, 
                                               bias=False),
                                     nn.MaxPool2d(2, 2),
-                                    GhostBatchNorm(128),
+                                    GhostBatchNorm(128,num_splits_),
                                     nn.ReLU(),
                                     nn.Dropout(dropout_value)
                                 )
@@ -40,14 +40,14 @@ class Net(nn.Module):
                                               kernel_size=(3, 3), 
                                               padding=1, 
                                               bias=False),
-                                    GhostBatchNorm(128),
+                                    GhostBatchNorm(128,num_splits_),
                                     nn.ReLU(),
                                     nn.Conv2d(in_channels=128, 
                                               out_channels=128, 
                                               kernel_size=(3, 3), 
                                               padding=1, 
                                               bias=False),
-                                    GhostBatchNorm(128),
+                                    GhostBatchNorm(128,num_splits_),
                                     nn.ReLU()            
                                 )
         # Layer 2
@@ -58,7 +58,7 @@ class Net(nn.Module):
                                               padding=1, 
                                               bias=False),
                                 nn.MaxPool2d(2, 2),
-                                GhostBatchNorm(256),
+                                GhostBatchNorm(256,num_splits_),
                                 nn.ReLU(),
                                 nn.Dropout(dropout_value)
                                 )
@@ -71,7 +71,7 @@ class Net(nn.Module):
                                               padding=1, 
                                               bias=False),
                                     nn.MaxPool2d(2, 2),
-                                    GhostBatchNorm(512),
+                                    GhostBatchNorm(512,num_splits_),
                                     nn.ReLU(),
                                     nn.Dropout(dropout_value)  
                                 )
@@ -81,14 +81,14 @@ class Net(nn.Module):
                                               kernel_size=(3, 3), 
                                               padding=1, 
                                               bias=False),
-                                    GhostBatchNorm(512),
+                                    GhostBatchNorm(512,num_splits_),
                                     nn.ReLU(),
                                     nn.Conv2d(in_channels=512, 
                                               out_channels=512, 
                                               kernel_size=(3, 3), 
                                               padding=1, 
                                               bias=False),
-                                    GhostBatchNorm(512),
+                                    GhostBatchNorm(512,num_splits_),
                                     nn.ReLU()            
                                 )
         self.output = nn.Sequential(
