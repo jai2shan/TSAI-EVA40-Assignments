@@ -23,13 +23,13 @@ def LR_Max(net,trainloader,start,end,iters,mode):
 	return lr_max
 
 
-def LR_Min(trainloader,lr_max):
+def LR_Min(net,trainloader,lr_max):
 	use_cuda = torch.cuda.is_available()
 	device = torch.device("cuda" if use_cuda else "cpu")
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
 	lr_min = dict()
 	for i in mins:
-	  net = Net().to(device)
+# 	  net = Net().to(device)
 	  
 	  tt = TrainTest()
 	  test_acc = 0
@@ -41,8 +41,8 @@ def LR_Min(trainloader,lr_max):
 	      tt.train_(net, device, trainloader, optimizer, criterion, epoch,L1 = False)
  
 	  lr_min[i] = max(tt.train_acc)
-	  del net
-	  del tt
+# 	  del net
+# 	  del tt
 
 	lr_min = max(lr_min, key=lr_min.get)
 	return lr_min
