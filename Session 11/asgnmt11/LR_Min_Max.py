@@ -23,7 +23,7 @@ def LR_Max(net,trainloader,start,end,iters,mode):
 	return lr_max
 
 
-def LR_Min(net,trainloader,lr_max):
+def LR_Min(trainloader,lr_max):
 	use_cuda = torch.cuda.is_available()
 	device = torch.device("cuda" if use_cuda else "cpu")
 	mins = [lr_max.values[0]/i for i in list(range(5,11))]
