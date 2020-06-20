@@ -112,23 +112,21 @@ def Misclassification(dataset,model,classes,device):
         outputs = model(images)
         _, predicted = torch.max(outputs.data, 1)
         for i in range(len(labels)):
-          if(len(wrong)<5 and predicted[i]!=labels[i]):
+          if(len(wrong)<25 and predicted[i]!=labels[i]):
             wrong.append([images[i],predicted[i],labels[i]])
 
-          if(len(wrong)>5):
+          if(len(wrong)>25):
               break
 
-    fig = plt.figure(figsize = (8,2))
-    for i in range(5):
-      sub = fig.add_subplot(1, 5, i+1)
+    fig = plt.figure(figsize = (8,8))
+    for i in range(25):
+      sub = fig.add_subplot(5, 5, i+1)
       #imshow(misclassified_images[i][0].cpu())
       img = wrong[i][0].cpu()
-      img = img / 2 + 0.5 
+      img = img * 2 + 0.5 
       npimg = img.numpy()
       plt.imshow(np.transpose(npimg,(1, 2, 0)),interpolation='none')
       sub.set_title("P={}, A={}".format(str(classes[wrong[i][1].data.cpu().numpy()]),str(classes[wrong[i][2].data.cpu().numpy()])))
         
-        
-            
     plt.tight_layout()
 
