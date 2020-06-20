@@ -43,12 +43,6 @@ def LR_Min(trainloader,lr_max):
 	  lr_min[i] = max(tt.train_acc)
 	  del net
 	  del tt
-<<<<<<< HEAD
 
 	lr_min = max(lr_min, key=lr_min.get)
     return lr_min
-=======
-		
-	lr_min = max(lr_min, key=lr_min.get)
-	return lr_min
->>>>>>> 48716f81ab518168316b06e68d3f6e85acef4c61
