@@ -36,7 +36,7 @@ def ViewModelPerformance(testloader,model,classes,device):
     images, labels = dataiter.next()
     
     # print images
-    imshow(torchvision.utils.make_grid(images))
+    # imshow(torchvision.utils.make_grid(images))
     print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
     
     """Okay, now let us see what the neural network thinks these examples above are:"""
@@ -120,16 +120,16 @@ def Misclassification(dataset,model,device):
           if(len(wrong)>25):
               break
 
-    fig = plt.figure(figsize = (8,8))
-    for i in range(25):
-      sub = fig.add_subplot(5, 5, i+1)
-      #imshow(misclassified_images[i][0].cpu())
-      img = wrong[i][0].cpu()
-      img = img * 2 + 0.5 
-      npimg = img.numpy()
-      plt.imshow(np.transpose(npimg,(1, 2, 0)),interpolation='none')
-      sub.set_title("P={}, A={}".format(str(classes[wrong[i][1].data.cpu().numpy()]),str(classes[wrong[i][2].data.cpu().numpy()])))
+    # fig = plt.figure(figsize = (8,8))
+    # for i in range(25):
+    #   sub = fig.add_subplot(5, 5, i+1)
+    #   #imshow(misclassified_images[i][0].cpu())
+    #   img = wrong[i][0].cpu()
+    #   img = img * 2 + 0.5 
+    #   npimg = img.numpy()
+    #   plt.imshow(np.transpose(npimg,(1, 2, 0)),interpolation='none')
+    #   sub.set_title("P={}, A={}".format(str(classes[wrong[i][1].data.cpu().numpy()]),str(classes[wrong[i][2].data.cpu().numpy()])))
         
-    plt.tight_layout()
+    # plt.tight_layout()
     return wrong
 
