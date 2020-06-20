@@ -66,7 +66,7 @@ def cifar_data_loader(BatchSize):
                                        transforms.RandomAffine(0,shear=10,scale=(0.8,1.2)),  
                                        transforms.ColorJitter(brightness=0.2,contrast=0.2,saturation=0.2),
                                        transforms.ToTensor(),
-                                       Cutout(n_holes=1, length=16,prob = 0.5),
+                                       Cutout(n_holes=1, length=8,prob = 0.5),
                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
     transform_params['test'] = transforms.Compose([
