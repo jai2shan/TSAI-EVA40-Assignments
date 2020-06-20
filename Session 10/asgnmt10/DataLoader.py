@@ -4,6 +4,7 @@ Created on Sat May 16 12:45:51 2020
 
 @author: jayasans4085
 """
+from torchvision import transforms
 import torch
 from torchvision import datasets
 import torchvision
@@ -46,14 +47,13 @@ class Cutout:
             y2 = np.clip(y + self.length // 2, 0, h)
             x1 = np.clip(x - self.length // 2, 0, w)
             x2 = np.clip(x + self.length // 2, 0, w)
-
-              mask[y1: y2, x1: x2] = 0.
+            mask[y1: y2, x1: x2] = 0.
 
         mask = torch.from_numpy(mask)
         mask = mask.expand_as(img)
         img = img * mask
 
-          return img
+        return img
 
 def cifar_data_loader(BatchSize):
     classes = ('plane', 'car', 'bird', 'cat',
@@ -66,7 +66,7 @@ def cifar_data_loader(BatchSize):
                                        transforms.RandomAffine(0,shear=10,scale=(0.8,1.2)),  
                                        transforms.ColorJitter(brightness=0.2,contrast=0.2,saturation=0.2),
                                        transforms.ToTensor(),
-                                       Cutout(n_holes=1, length=16,prob = 0.5),
+                                       Cutout(n_holes=1, length=8,prob = 0.5),
                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
     transform_params['test'] = transforms.Compose([
