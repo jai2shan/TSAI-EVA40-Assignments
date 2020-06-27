@@ -61,16 +61,16 @@ def data_loader_(train_path,test_path,BatchSize):
     transform_params['train'] = transforms.Compose([
                                        transforms.RandomRotation(10),
                                        #transforms.RandomAffine(0,shear=10,scale=(0.8,1.2)), 
-                                       transforms.RandomCrop(size = 32,padding = 4),
+                                       # transforms.RandomCrop(size = 32,padding = 4),
                                        transforms.RandomHorizontalFlip(p=0.5),
-                                       transforms.Resize((32,32)),
+                                       # transforms.Resize((32,32)),
                                        #transforms.ColorJitter(brightness=0.2,contrast=0.2,saturation=0.2),
                                        transforms.ToTensor(),
                                        Cutout(n_holes=1, length=8,prob = 0.5),
                                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))])
 
     transform_params['test'] = transforms.Compose([
-                                        transforms.Resize((32,32)),
+                                        # transforms.Resize((32,32)),
                                        transforms.ToTensor(),
                                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))])
 
