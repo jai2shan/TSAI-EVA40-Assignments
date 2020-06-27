@@ -1,0 +1,1 @@
+https://www.kaggle.com/rafazz/tinyimagenet-normalized/version/1
