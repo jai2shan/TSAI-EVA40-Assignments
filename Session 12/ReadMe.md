@@ -19,6 +19,21 @@ Best Test Accuracy acheived:51.63%
 git : https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/OneCycleLR.ipynb   
 colab : https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/OneCycleLR.ipynb
 
+### Step 3 :
+Using OneCycleLR. (Currently running during the time of submission)         
+Best Test Accuracy acheived:
+
+##### Link to Solution:
+git : 
+colab : 
+
+# Final Verdict:
+For now "ReduceLR on Plateau" has the best accuracy. May be after the completion of OnecycleLR Step 3, i might get better results.
+Best Accuracy Achieved: 59.17%
+
+## Links :
+git: https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/ReduceLROnPlateau.ipynb            
+colab: https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/ReduceLROnPlateau.ipynb
 References for mean and sd of Tiny Imagenet         
 https://www.kaggle.com/rafazz/tinyimagenet-normalized/version/1
 
