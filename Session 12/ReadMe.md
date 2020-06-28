@@ -21,7 +21,7 @@ colab : https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments
 
 ### Step 3 :
 Using OneCycleLR. (Currently running during the time of submission)               
-Best Test Accuracy acheived:
+Best Test Accuracy acheived: 40.83(Epoch 10)
 
 ##### Link to Solution:
 git : https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/OneCycleLR%20-%20Step%203.ipynb      
