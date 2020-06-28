@@ -24,8 +24,8 @@ Using OneCycleLR. (Currently running during the time of submission)
 Best Test Accuracy acheived:
 
 ##### Link to Solution:
-git : 
-colab : 
+git : https://github.com/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/OneCycleLR%20-%20Step%203.ipynb      
+colab :  https://colab.research.google.com/github/jai2shan/TSAI-EVA40-Assignments/blob/master/Session%2012/OneCycleLR%20-%20Step%203.ipynb    
 
 # Final Verdict:
 For now "ReduceLR on Plateau" has the best accuracy. May be after the completion of OnecycleLR Step 3, i might get better results.     
