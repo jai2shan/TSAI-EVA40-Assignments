@@ -26,8 +26,8 @@ Share the link of your YouTube video on LinkedIn, Instagram, etc! You have no id
 #### Steps: 
 Collected 490 minion images using below videos 
   > https://www.youtube.com/watch?v=W7LWny6c4wI&t=210s
-  > https://www.youtube.com/watch?v=Cxy88GeEAxg
-Using the repo in the link shared in course page, ran 300 epochs
-And then ran the code on the below video   
-  > https://www.youtube.com/watch?v=b_-dgO63ORs&t=14s
+  > https://www.youtube.com/watch?v=Cxy88GeEAxg      
+Using the repo in the link shared in course page, ran 300 epochs     
+And then ran the code on the below video       
+  > https://www.youtube.com/watch?v=b_-dgO63ORs&t=14s     
  You tube link for the solution : https://www.youtube.com/watch?v=x1bsT0j1crc
