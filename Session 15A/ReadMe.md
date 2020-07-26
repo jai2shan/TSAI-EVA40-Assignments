@@ -22,7 +22,8 @@ SD of Images:
 
 Background Images: Different background images of the empty locations are downloaded from the internet. And each images is cropped 224x224 shapes. In total we have 102 images. Cropping portion is done using python code.               
 Ex: Empty Airports, Beaches, Stadiums, shopping malls, lounges, historic locations, parks etc.,                  
-![](RM_Images\bg\bg001.jpg?raw=true)                    
+![](RM_Images\bg\bg001.jpg?raw=true) 
+<img src="RM_Images\bg\bg001.jpg" style="height: 100px; width:100px;"/>
 
 Foreground Images: Different png images of various objects/animals are downloaded again from google. These images are resized to 56x56 using python
 Ex: Humans, dogs, cats, trolley, bikes, cars, camers etc.,
