@@ -1,24 +1,26 @@
 # Assignment 15 A
 
 Data Statistics
-1) Background Images	 : 102
-2) Foreground Images     : 200 ( Including Flipped Images)
-3) Masks				 : 200
-4) Overlaid Images(fg_bg): 408000
-5) Overlaid Mask Images  : 408000
-6) Depth Images			 : 408000
+1) Background Images	 : 102				
+2) Foreground Images     : 200 ( Including Flipped Images)				
+3) Masks				 : 200				
+4) Overlaid Images(fg_bg): 408000			
+5) Overlaid Mask Images  : 408000				
+6) Depth Images			 : 408000				
 
 Mean of Images:
-1) Overlaid Images(fg_bg): 408000
-2) Overlaid Mask Images  : 408000
-3) Depth Images			 : 408000
+(Yet to revalidate) 
+1) Overlaid Images(fg_bg): [0.5076, 0.4881, 0.4571]  				           
+2) Overlaid Mask Images  : [0.0415, 0.0415, 0.0415]				
+3) Depth Images			 : [0.9999, 0.9999, 0.9999]			
 
 
 SD of Images:
-1) Overlaid Images(fg_bg): 408000
-2) Overlaid Mask Images  : 408000
-3) Depth Images			 : 408000
-
+(Yet to revalidate) 
+1) Overlaid Images(fg_bg): [0.4985, 0.4985, 0.5419]			
+2) Overlaid Mask Images  : [0.0612, 0.0612, 0.0612]			
+3) Depth Images			 : [0.0015, 0.0015, 0.0015]				
+		
 
 Background Images: Different background images of the empty locations are downloaded from the internet. And each images is cropped 224x224 shapes. In total we have 102 images. Cropping portion is done using python code.                               
 Ex: Empty Airports, Beaches, Stadiums, shopping malls, lounges, historic locations, parks etc.,                  
@@ -55,3 +57,11 @@ Depth Images: Depth Images are predicted using the pytorch code in the below lin
 Repo Link: https://github.com/jai2shan/Depth-Estimation-PyTorch              
 Script used to predict depth: https://github.com/jai2shan/Depth-Estimation-PyTorch/blob/master/test_jay.py                       
 
+
+## Folder Location:
+1) Background Images	 : https://drive.google.com/drive/folders/1hW9F3Z8Tu59DTFw7NwZqUH3Kp9Kqq5EK?usp=sharing          
+2) Foreground Images     : https://drive.google.com/drive/folders/1hW9F3Z8Tu59DTFw7NwZqUH3Kp9Kqq5EK?usp=sharing                 
+3) Masks				 : https://drive.google.com/drive/folders/1hW9F3Z8Tu59DTFw7NwZqUH3Kp9Kqq5EK?usp=sharing               
+4) Overlaid Images(fg_bg): https://drive.google.com/drive/folders/1hW9F3Z8Tu59DTFw7NwZqUH3Kp9Kqq5EK?usp=sharing                 
+5) Overlaid Mask Images  : https://drive.google.com/drive/folders/1AyagZcVFeM4IQ7aIvuAjz70BHTJOA-89?usp=sharing                   
+6) Depth Images			 : https://drive.google.com/drive/folders/1AyagZcVFeM4IQ7aIvuAjz70BHTJOA-89?usp=sharing                
