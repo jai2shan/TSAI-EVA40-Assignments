@@ -22,13 +22,29 @@ SD of Images:
 
 Background Images: Different background images of the empty locations are downloaded from the internet. And each images is cropped 224x224 shapes. In total we have 102 images. Cropping portion is done using python code.               
 Ex: Empty Airports, Beaches, Stadiums, shopping malls, lounges, historic locations, parks etc.,                  
-![](RM_Images\bg\bg001.jpg?raw=true) 
-<img src="RM_Images\bg\bg001.jpg" style="height: 100px; width:100px;"/>
+
+<img src="RM_Images\bg\bg001.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\bg\bg002.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\bg\bg003.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\bg\bg004.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\bg\bg005.jpg" style="height: 56px; width:56px;"/>
 
 Foreground Images: Different png images of various objects/animals are downloaded again from google. These images are resized to 56x56 using python
 Ex: Humans, dogs, cats, trolley, bikes, cars, camers etc.,
 
+<img src="RM_Images\fg\fg002.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\fg\fg024.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\fg\fg033.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\fg\fg057.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\fg\fg153.jpg" style="height: 56px; width:56px;"/>
+
 Masks : Masks are the created by replacing the all the empty cells in foreground images with black pixel values and non empty cells replaced with white pixel value using python
+
+<img src="RM_Images\masks\mk001.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\masks\mk005.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\masks\mk020.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\masks\mk041.jpg" style="height: 56px; width:56px;"/>
+<img src="RM_Images\masks\mk054.jpg" style="height: 56px; width:56px;"/>
 
 Overlaid Images: All the foreground images are randomly placed on the background images in 20 different locations. Using this we created 408000 images dataset.
 Overlaid Masks: in the same locations as the overlaid images, corresponding mask images are placed on the black images of 224x224
